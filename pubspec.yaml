@@ -1,0 +1,9 @@
+name: mango_house
+version: 1.0.0
+description: Wrapper for Mango House API
+repository: https://github.com/louisevanderlith/house
+homepage: https://github.com/louisevanderlith/house
+environment:
+  sdk: '>=2.0.0 < 3.0.0'
+dependencies:
+  mango_ui: '^1.0.3'
