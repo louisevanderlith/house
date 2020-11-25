@@ -12,6 +12,7 @@ func SetupRoutes(issuer, audience string) http.Handler {
 	mw := open.BearerMiddleware(audience, issuer)
 	r.Handle("/info/{key:[0-9]+\\x60[0-9]+}", mw.Handler(http.HandlerFunc(ViewProperty))).Methods(http.MethodGet)
 
+	r.Handle("/info", mw.Handler(http.HandlerFunc(GetProperties))).Methods(http.MethodGet)
 	r.Handle("/info/{pagesize:[A-Z][0-9]+}", mw.Handler(http.HandlerFunc(SearchProperties))).Methods(http.MethodGet)
 
 	r.Handle("/info", mw.Handler(http.HandlerFunc(CreateProperty))).Methods(http.MethodPost)

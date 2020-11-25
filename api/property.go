@@ -11,7 +11,7 @@ import (
 )
 
 func FetchProperty(web *http.Client, host string, k hsk.Key) (core.Property, error) {
-	url := fmt.Sprintf("%s/%s", host, k.String())
+	url := fmt.Sprintf("%s/info/%s", host, k.String())
 	resp, err := web.Get(url)
 
 	if err != nil {
@@ -33,7 +33,7 @@ func FetchProperty(web *http.Client, host string, k hsk.Key) (core.Property, err
 }
 
 func FetchAllProperties(web *http.Client, host, pagesize string) (records.Page, error) {
-	url := fmt.Sprintf("%s/properties/%s", host, pagesize)
+	url := fmt.Sprintf("%s/info/%s", host, pagesize)
 	resp, err := web.Get(url)
 
 	if err != nil {
