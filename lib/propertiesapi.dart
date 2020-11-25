@@ -7,15 +7,15 @@ import 'package:mango_ui/requester.dart';
 import 'bodies/property.dart';
 
 Future<HttpRequest> createProperty(Property obj) async {
-  var apiroute = getEndpoint("stock");
-  var url = "${apiroute}/properties";
+  var apiroute = getEndpoint("house");
+  var url = "${apiroute}/info";
 
   return invokeService("POST", url, jsonEncode(obj.toJson()));
 }
 
 Future<HttpRequest> updateProperty(Key key, Property obj) async {
-  var route = getEndpoint("stock");
-  var url = "${route}/properties/${key.toJson()}";
+  var route = getEndpoint("house");
+  var url = "${route}/info/${key.toJson()}";
 
   final data = jsonEncode(obj.toJson());
 
@@ -23,8 +23,8 @@ Future<HttpRequest> updateProperty(Key key, Property obj) async {
 }
 
 Future<HttpRequest> deleteProperty(Key key) async {
-  var route = getEndpoint("stock");
-  var url = "${route}/properties/${key.toJson()}";
+  var route = getEndpoint("house");
+  var url = "${route}/info/${key.toJson()}";
 
   return invokeService("DELETE", url, "");
 }
